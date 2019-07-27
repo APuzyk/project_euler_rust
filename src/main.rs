@@ -10,7 +10,6 @@ fn problem_1(a: i32, b: i32, max_val: i32) -> i32   {
 
     for i in 0..max_val {
         if (i%a == 0) | (i%b == 0) {
-            println!("{}", i);
             o += i;
         }
     }
