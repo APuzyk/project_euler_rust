@@ -60,8 +60,10 @@ fn problem_4(num_digits: u32) -> i32{
 
     for i in base.pow(num_digits - 1)..(base.pow(num_digits)-1) {
         for j in base.pow(num_digits - 1)..(base.pow(num_digits)-1) {
-            if is_number_palindrome(i * j) & ((i*j) > lp){
-                lp = i*j
+            if (i*j) > lp {
+                if is_number_palindrome(i * j) {
+                    lp = i * j
+                }
             }
         }
     }
