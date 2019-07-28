@@ -6,6 +6,8 @@ fn main() {
     println!("Answer 3: {}", problem_3(600851475143));
     println!("Answer 4: {}", problem_4(3));
     println!("Answer 5: {}", problem_5(20));
+    println!("Answer 6: {}", problem_6(100));
+    println!("Answer 7: {}", problem_7(10001));
 }
 
 fn problem_1(a: i32, b: i32, max_val: i32) -> i32   {
@@ -99,4 +101,41 @@ fn get_gcd(a: i64, b: i64) -> i64 {
         }
     }
     return 1
+}
+
+fn problem_6(x: i64) -> i64 {
+    let mut s1: i64 = 0;
+    let mut s2: i64 = 0;
+    for i in 1..(x+1) {
+        s1 += i.pow(2);
+        s2 += i;
+    }
+
+    return s2.pow(2) - s1;
+}
+
+fn problem_7(x: i64) -> i64 {
+    let mut curr_prime = 1;
+    let mut o = 2;
+    while curr_prime != x {
+        o += 1;
+        if is_prime(o){
+            curr_prime += 1;
+        }
+    }
+
+    return o
+}
+
+fn is_prime(x: i64) -> bool {
+    let mut i = 2;
+    let mut max_val= (x/2) + 1;
+    while i < max_val {
+        if x%i == 0 {
+            return false
+        }
+        max_val = (x/i) + 1;
+        i += 1;
+    }
+    return true
 }
