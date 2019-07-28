@@ -1,8 +1,11 @@
+use std::cmp;
+
 fn main() {
     println!("Answer 1: {}", problem_1(3, 5, 1000));
     println!("Answer 2: {}", problem_2(4000000));
     println!("Answer 3: {}", problem_3(600851475143));
     println!("Answer 4: {}", problem_4(3));
+    println!("Answer 5: {}", problem_5(20));
 }
 
 fn problem_1(a: i32, b: i32, max_val: i32) -> i32   {
@@ -77,4 +80,23 @@ fn is_number_palindrome(x: i32) -> bool {
     let s1 = &s[..(nchar/2)];
     let s2 = &s[(nchar-nchar/2)..(nchar)].chars().rev().collect::<String>();
     return s1 == s2
+}
+
+fn problem_5(x: i64) -> i64 {
+    let mut o = 1;
+    for i in 1..(x+1) {
+        o = (o * i)/get_gcd(o, i)
+    }
+    return o
+}
+
+fn get_gcd(a: i64, b: i64) -> i64 {
+    let smaller = cmp::min(a, b);
+
+    for i in (1..(smaller+1)).rev() {
+        if (a%i == 0) & (b%i == 0) {
+            return i;
+        }
+    }
+    return 1
 }
