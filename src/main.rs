@@ -307,4 +307,3 @@ fn check_down_to_left(mat: &Vec<Vec<i32>>, run_len: usize) -> i128 {
 }
 */
 
-fn
